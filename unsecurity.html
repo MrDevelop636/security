@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyświetlanie wiadomości</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        #message {
+            font-size: 24px;
+            color: #333;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="message">Ładowanie wiadomości...</div>
+
+    <script>
+        // Definiowanie zmiennej z wiadomością
+        const message = "test";
+
+        // Znajdź element HTML o id "message" i ustaw jego tekst na wartość zmiennej
+        document.getElementById("message").textContent = message;
+    </script>
+</body>
+</html>
