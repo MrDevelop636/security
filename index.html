@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiadomość zahaszowana</title>
+    <title>Wyświetlanie wiadomości</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,31 +29,11 @@
     <div id="message">Ładowanie wiadomości...</div>
 
     <script>
-        // Zahasowana wiadomość (SHA-256 zakodowana w Base64)
-        const hashedMessage = "532eaabd9574880dbf76b9b8cc00832c20a6ec113d682299550d7a6e0f345e25";
+        // Definiowanie zmiennej z wiadomością
+        const message = "Witaj na naszej stronie! Miłego dnia!";
 
-        // Oryginalna wiadomość (weryfikujemy, czy zgadza się z hashem)
-        const originalMessage = "Test";
-
-        // Funkcja do hashowania danych za pomocą SHA-256
-        async function hashMessage(message) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(message);
-            const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return btoa(String.fromCharCode(...hashArray)); // Konwersja na Base64
-        }
-
-        // Weryfikacja wiadomości
-        (async () => {
-            const computedHash = await hashMessage(originalMessage);
-
-            if (computedHash === hashedMessage) {
-                document.getElementById("message").textContent = originalMessage;
-            } else {
-                document.getElementById("message").textContent = "Niepoprawna wiadomość!";
-            }
-        })();
+        // Znajdź element HTML o id "message" i ustaw jego tekst na wartość zmiennej
+        document.getElementById("message").textContent = message;
     </script>
 </body>
 </html>
