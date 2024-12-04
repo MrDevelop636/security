@@ -29,10 +29,17 @@
     <div id="message">Ładowanie wiadomości...</div>
 
     <script>
-        // Definiowanie zmiennej z wiadomością
-        const message = "Witaj na naszej stronie! Miłego dnia!";
+        // Zaszyfrowana wiadomość (base64)
+        const encryptedMessage = "V2l0YWogbmEgbmFzeiBzdHJvbmllISBNacWCZWdvIGRuaWEh"; // Base64 encoded
 
-        // Znajdź element HTML o id "message" i ustaw jego tekst na wartość zmiennej
+        // Funkcja deszyfrująca wiadomość (base64 -> tekst)
+        function decodeMessage(base64String) {
+            const decodedString = atob(base64String); // Dekodowanie base64
+            return decodedString;
+        }
+
+        // Odszyfrowanie wiadomości i wyświetlenie
+        const message = decodeMessage(encryptedMessage);
         document.getElementById("message").textContent = message;
     </script>
 </body>
